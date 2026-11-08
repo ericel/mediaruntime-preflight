@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MediaRuntime Preflight Demo</title>
+
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #e5e7eb;
+        background: #111827;
+      }
+
+      body {
+        max-width: 960px;
+        margin: 48px auto;
+        padding: 0 20px;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      .muted {
+        color: #a9b4c5;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin: 24px 0;
+      }
+
+      button,
+      input::file-selector-button {
+        padding: 10px 16px;
+        border: 1px solid #526079;
+        border-radius: 8px;
+        background: #243147;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+
+      #summary {
+        padding: 16px;
+        background: #1f2937;
+        border-radius: 8px;
+      }
+
+      pre {
+        padding: 20px;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        background: #0b1220;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>MediaRuntime Preflight</h1>
+
+    <p class="muted">
+      Inspect a file locally in a browser worker. File contents are not uploaded.
+      This milestone checks PNG headers, not complete image integrity or malware.
+    </p>
+
+    <p class="muted">
+      Demo policy: PNG, at most 10 MiB, maximum dimensions 4096 × 4096,
+      and at most 16 million pixels.
+    </p>
+
+    <div class="controls">
+      <label>
+        Choose a file:
+        <input id="file-input" type="file" />
+      </label>
+
+      <button id="inspect-button" type="button" disabled>
+        Inspect again
+      </button>
+
+      <button id="cancel-button" type="button" disabled>
+        Cancel
+      </button>
+    </div>
+
+    <p id="status" role="status" aria-live="polite">
+      Select a file to begin.
+    </p>
+
+    <p id="summary">No inspection yet.</p>
+    <pre id="report" aria-label="Inspection report">{}</pre>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+# Dependencies.
+node_modules/
+
+# Build output and tooling caches.
+dist/
+dist-demo/
+.vite/
+.vitest/
+*.tsbuildinfo
+
+# Test and coverage artifacts.
+coverage/
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# Local environment files; keep examples trackable.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs.
+*.log
+
+# Operating-system and editor temporary files.
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*.swo
